@@ -93,17 +93,20 @@ def display_two_item_selection():
         con.commit()
         cursor.close()
 
+    st.button("**引き分け**", key="draw", on_click=match_result, args=['draw'])
+
     col1, col2 = st.columns(2)
     with col1:
-        st.button(response_1, key='win', on_click=match_result, args=['win'])
+        st.button('**レスポンスA**', key='win', on_click=match_result, args=['win'])
+        st.markdown(response_1)
     with col2:
-        st.button(response_2, key='loss', on_click=match_result, args=['loss'])
+        st.button('**レスポンスB**', key='loss', on_click=match_result, args=['loss'])
+        st.markdown(response_2)
 
     st.write("")
     # If it's hard to choose which is better
-    st.write("どちらが良いか選ぶのが難しい場合は:")
+    # st.write("どちらが良いか選ぶのが難しい場合は:")
     # Draw
-    st.button("**引き分け**", key="draw", on_click=match_result, args=['draw'])
 
 
 def display_single_item_with_question(item, question, options, is_slider):
@@ -129,34 +132,3 @@ def display_single_item_with_question(item, question, options, is_slider):
 evaluation_page()
 # elif selection == "Results":
 #    results_page()
-
-
-
-def test():
-    '''
-    ---
-
-    db:
-    * models
-    * tasks
-    * responses
-
-    * evals
-      * instructions
-
-    load:
-    * load tasks
-    * add models
-    * create generations
-
-
-    evals frontend:
-    * Pick A/B ranking
-
-# pykoi - cool but realtime
-    https://www.ycombinator.com/launches/JA8-cambioml-the-private-engineer-for-ml-scientists-at-large-enterprises
-    https://github.com/CambioML/pykoi/blob/main/example/comparator/demo_model_comparator_cpu_openai.ipynb
-# 
-
-    '''
-    pass
