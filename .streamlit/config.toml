@@ -1,4 +1,2 @@
-serverPort = 8501
-
 [browser]
 gatherUsageStats = false
